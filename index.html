@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Travel form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img class="bg" src="gehu btl.jpg" alt="gehu btl">
+    <div class="container">
+    <h1>Welcome to Gehu Travel Website</h1>
+    <p>Enter your details to confirm your identity in college DataBase.</p>
+    <p class="submitmsg">Thanks for submitting your form. We are happy to see you!</p>
+    <form action="index.php" method="post">
+        <input type="text" name="Name" id="name" placeholder="Enter your name">
+        <input type="text" name="Age" id="age" placeholder="Enter your age">
+        <input type="text" name="Gender" id="gender" placeholder="Enter your gender">
+        <input type="email" name="Email" id="email" placeholder="Enter your email address">
+        <input type="phone" name="Phonenumber" id="phone" placeholder="Enter your Phone number">
+        <textarea name="other" id="desc" cols="30" rows="10" placeholder="Enter your description">
+        </textarea>
+        <button class="btn">Submit</button>
+        <!-- <button class="btn">Reset</button> -->
+    </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
