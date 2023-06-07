@@ -14,6 +14,11 @@
     font-family: 'Pangolin', cursive;
     text-align: center;
 }
+/* .alert{
+    width: 51%;
+    margin: 11px auto;
+    padding: 10px;
+} */
 input, textarea{
     border: 2.5px solid black;
     border-radius: 12px;

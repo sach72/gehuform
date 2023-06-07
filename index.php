@@ -1,4 +1,10 @@
 <?php
+//login validation process
+session_start();
+if(!isset($_SESSION['login'])||$_SESSION['login']!=true){
+    header("location:login.php");
+    exit;
+}
 // $nameErr = $emailErr = $genderErr = "";
 // $Name = $email = $Gender = $Other  = "";
 $insert = false;
@@ -32,7 +38,7 @@ $Gender = $_POST['Gender'];
 $Email = $_POST['Email'];
 $Phonenumber = $_POST['Phonenumber'];
 $Other = $_POST['Other'];
-$sql = "INSERT INTO  gehu_dashboard.trip(Name,Age,Gender,Email,Phonenumber,other,currentdate) VALUES 
+$sql = "INSERT INTO  gehu_dashboard.trip(Name,Age,Gender,Email,Phonenumber,other,dt) VALUES 
 ('$Name','$Age','$Gender','$Email','$Phonenumber','$Other',current_timestamp());";
 //echo $sql;
 
@@ -66,7 +72,8 @@ $con->close();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Travel form</title>
+    <title>Welcome to Travel form<?php echo $_SESSION['username']?></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
@@ -74,12 +81,20 @@ $con->close();
 </head>
 <body>
     <img class="bg" src="gehu btl.jpg" alt="gehu btl">
+    <?php require 'partials/_nav2.php' ?>
     <div class="container">
-    <h1>Welcome to Gehu Travel Website</h1>
+    <h1>Welcome to Gehu Travel Website <?php echo $_SESSION['username']?></h1>
     <p>Enter your details to confirm your identity in college DataBase.</p>
     <?php
+    // if($insert==true){
+    // echo "<p class='submitmsg'>Thanks for submitting your form. We are happy to see you!</p>";
+    // }
     if($insert==true){
-    echo "<p class='submitmsg'>Thanks for submitting your form. We are happy to see you!</p>";
+    echo '
+    <div class="alert alert-success " role="alert">
+    Thanks for submitting your form. We are happy to see you! | You can logout by <a href="logout.php">clicking me !</a>
+    </div>
+    ';
     }
     ?>
     <form action="index.php" method="post">
